@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>สุขสันต์วันครบรอบ😽</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Kanit', sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 80px;
+      color: #ff69b4;
+      font-size: 3em;
+    }
+
+    h2 {
+      margin-top: 20px;
+      color: #f691c3;
+      font-size: 2em;
+    }
+
+    p {
+      margin-top: 80px;
+      font-size: 1.2em;
+      color: #eba2df;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      background-color: #ff99cc;
+      color: white;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff66a3;
+    }
+
+    .message-box {
+      width: 80%;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #ffe0ec;
+      border: 2px dashed #ffb6c1;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+    }
+
+    .love-messages {
+      color: #d63384;
+      font-size: 0.8em;
+    }
+
+    .love-messages p {
+      margin: 8px 0;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff4da6;
+      font-size: 24px;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>สุขสันต์วันครบรอบ 💕</h1>
+  <h2>08/06/2025</h2>
+  <p>ขอบคุณที่อยู่ด้วยกันมาตลอดนะ รักที่สุดในโลกเลย </p>
+  <button onclick="addLove()">กดเพื่อรับความรักเพิ่ม 💌</button>
+
+  <!-- กรอบข้อความความรัก -->
+  <div class="message-box">
+    <div id="loveList" class="love-messages"></div>
+  </div>
+
+<div style="margin-top: 20px;">
+  <a href="benz2.html">
+    <button style="background-color: #ffd1e8;">ไปดูรูปความทรงจำ 📸</button>
+  </a>
+</div>
+
+  <script>
+    const loveMessages = [
+      "- ขอให้อยู่ด้วยกันแบบนี้ตลอดไป - ",
+      "- รักมากขึ้นทุกวันเลยน้าา -",
+      "- ขอบคุณที่ทำให้ทุกวันมีความหมาย -",
+      "- อยู่ด้วยกันไปจนแก่เลยน้า -",
+      "- เธอคือคนพิเศษที่สุดในชีวิตเรา -",
+      "- ขอบคุณที่เป็นรอยยิ้มในทุกๆ วัน -",
+      "- รักมากกว่าชานมไข่มุกอีกนะ -"
+    ];
+
+    let messageIndex = 0;
+
+    function addLove() {
+      const loveList = document.getElementById("loveList");
+      
+      if (messageIndex < loveMessages.length) {
+        const newMessage = document.createElement("p");
+        newMessage.textContent = loveMessages[messageIndex];
+        loveList.appendChild(newMessage);
+        messageIndex++;
+      } else {
+        const newMessage = document.createElement("p");
+        newMessage.textContent = "เก็บครบทุกความรักแล้วน้าา 💞";
+        loveList.appendChild(newMessage);
+        document.querySelector("button").disabled = true;
+        document.querySelector("button").innerText = "ครบแล้ว 💘";
+      }
+    }
+
+    // หัวใจลอย
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 10 + "px";
+      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      heart.innerText = "💖";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }, 300);
+  </script>
+</body>
+</html>
